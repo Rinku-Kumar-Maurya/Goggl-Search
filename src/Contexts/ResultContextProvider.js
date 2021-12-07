@@ -4,7 +4,7 @@ const ResultContext = createContext();
 const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 
 
-const ResultConextProvider = ({ children }) => {
+export const ResultContextProvider = ({ children }) => {
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +15,10 @@ const ResultConextProvider = ({ children }) => {
         const response = await fetch(`${baseUrl}${type}`, {
             method: 'GET',
             headers: {
-                
+                'x-user-agent': 'desktop',
+                'x-proxy-location': 'US',
+                'x-rapidapi-host': 'google-search3.p.rapidapi.com',
+                'x-rapidapi-key': '56b7e8d93amsh19b662e46b92547p1466ecjsn52fe3a75f84c'
             }
         });
 
@@ -26,9 +29,9 @@ const ResultConextProvider = ({ children }) => {
     }
 
     return (
-        <ResultConext.Provider value={{results, isLoading, searchTerm, setSearchTerm, getResults}}>
+        <ResultContext.Provider value={{results, isLoading, searchTerm, setSearchTerm, getResults}}>
             {children}
-        </ResultConext.Provider>
+        </ResultContext.Provider>
     );
 }
 

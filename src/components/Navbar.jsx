@@ -13,7 +13,7 @@ const Navbar = ({ darkTheme, setDarkTheme }) => {
                     </p>
                 </Link>
                 <button type='button' onClick={() => setDarkTheme(!darkTheme)} className='text-xl dark:bg-gray-50 dark:text-gray-900 bg-white rounded-full py-1 px-2 hover:shadow-lg'>
-                    {darkTheme ? 'Light ☀': 'Dark 🌙'}
+                    {darkTheme ? 'Light☀': 'Dark 🌙'}
                 </button>
             </div>
             <Search />
